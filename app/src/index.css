@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 0 0% 10%;
+    --card: 40 100% 98%;
+    --card-foreground: 0 0% 10%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 218 53% 23%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 37 32% 78%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 35 25% 90%;
+    --muted-foreground: 24 5% 40%;
+    --accent: 37 32% 78%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 16 54% 47%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 10% 82%;
+    --input: 30 10% 82%;
+    --ring: 37 32% 58%;
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-pz-cream text-pz-text font-inter antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cormorant;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  .btn-whatsapp {
+    @apply bg-pz-whatsapp text-white font-inter font-semibold px-8 py-3.5 rounded-lg 
+           hover:scale-[1.02] hover:shadow-lg transition-all duration-150 
+           inline-flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-pz-gold text-pz-navy font-inter font-semibold px-8 py-3.5 rounded-lg
+           hover:bg-pz-gold hover:text-white transition-all duration-200
+           inline-flex items-center gap-2;
+  }
+
+  .btn-cta2 {
+    @apply bg-pz-cta2 text-white font-inter font-semibold px-8 py-3.5 rounded-lg
+           hover:scale-[1.02] hover:shadow-lg transition-all duration-150
+           inline-flex items-center gap-2;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
