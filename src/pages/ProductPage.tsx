@@ -6,9 +6,9 @@ import { useCart } from '@/context/CartContext';
 import { generateWhatsAppUrl, generateOrderMessage } from '@/lib/whatsapp';
 
 const galleryImages = [
-  '/images/hero-bottle.jpg',
+  '/images/hero-bottle.png',
   '/images/hero-glass.jpg',
-  '/images/hero-carton.jpg',
+  '/images/hero-carton.png',
   '/images/hero-degustation.jpg',
 ];
 

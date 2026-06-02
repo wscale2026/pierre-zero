@@ -140,7 +140,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: 0.4 }}
-                href="https://wa.me/237694434821"
+                href="https://wa.me/237655607048"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp mt-4"

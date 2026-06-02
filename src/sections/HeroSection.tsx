@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useMemo } from 'react';
+import { useRef, useState, useCallback, useMemo, forwardRef, useImperativeHandle } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion';
@@ -120,9 +120,12 @@ function ImagePlane({ texture, position, size, progress, distortion }: ImagePlan
     [texture, size]
   );
 
-  useFrame((state) => {
+  const time = useRef(0);
+
+  useFrame((state, delta) => {
+    time.current += delta;
     if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
+      materialRef.current.uniforms.uTime.value = time.current;
       materialRef.current.uniforms.uProgress.value = progress.current;
       materialRef.current.uniforms.uDistortion.value = distortion.current;
     }
@@ -142,7 +145,7 @@ function ImagePlane({ texture, position, size, progress, distortion }: ImagePlan
   );
 }
 
-function HeroScene({ onReveal }: { onReveal: () => void }) {
+export const HeroScene = forwardRef(({ onReveal }: { onReveal: () => void }, ref) => {
   const { viewport, size } = useThree();
   const progressRef = useRef(0);
   const distortionRef = useRef(0.08);
@@ -194,6 +197,10 @@ function HeroScene({ onReveal }: { onReveal: () => void }) {
     });
   }, [clicked, onReveal]);
 
+  useImperativeHandle(ref, () => ({
+    triggerReveal: handleClick
+  }));
+
   return (
     <group onClick={handleClick}>
       {/* Invisible hit plane */}
@@ -214,10 +221,11 @@ function HeroScene({ onReveal }: { onReveal: () => void }) {
       ))}
     </group>
   );
-}
+});
 
 export default function HeroSection() {
   const [revealed, setRevealed] = useState(false);
+  const sceneRef = useRef<{ triggerReveal: () => void }>(null);
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-pz-navy">
@@ -227,14 +235,17 @@ export default function HeroSection() {
         gl={{ antialias: true, alpha: false }}
         style={{ position: 'absolute', inset: 0 }}
       >
-        <HeroScene onReveal={() => setRevealed(true)} />
+        <HeroScene ref={sceneRef} onReveal={() => setRevealed(true)} />
       </Canvas>
 
       {/* Click Prompt */}
       {!revealed && (
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-center">
-            <div className="animate-pulse-subtle bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 border border-white/20">
+            <div 
+              className="animate-pulse-subtle bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 border border-white/20 pointer-events-auto cursor-pointer"
+              onClick={() => sceneRef.current?.triggerReveal()}
+            >
               <p className="font-inter text-white text-lg font-medium">
                 Cliquez pour découvrir
               </p>

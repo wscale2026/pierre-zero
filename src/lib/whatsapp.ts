@@ -1,6 +1,6 @@
 import type { CartState } from '@/types';
 
-const WHATSAPP_NUMBER = '237694434821';
+const WHATSAPP_NUMBER = '237655607048';
 
 export function generateWhatsAppUrl(message?: string): string {
   const baseUrl = `https://wa.me/${WHATSAPP_NUMBER}`;

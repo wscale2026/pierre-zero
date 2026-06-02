@@ -38,7 +38,7 @@ export default function ProductShowcase() {
           >
             <div className="relative bg-pz-goldpale rounded-lg p-8 md:p-12 flex items-center justify-center aspect-[3/4] max-w-md mx-auto lg:max-w-none">
               <img
-                src="/images/hero-bottle.jpg"
+                src="/images/hero-bottle.png"
                 alt={product.name}
                 className="w-full h-full object-contain drop-shadow-2xl"
               />
