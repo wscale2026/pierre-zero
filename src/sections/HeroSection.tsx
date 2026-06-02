@@ -122,7 +122,7 @@ function ImagePlane({ texture, position, size, progress, distortion }: ImagePlan
 
   const time = useRef(0);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     time.current += delta;
     if (materialRef.current) {
       materialRef.current.uniforms.uTime.value = time.current;
