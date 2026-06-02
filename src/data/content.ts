@@ -193,14 +193,14 @@ export const b2bClientTypes = [
 ];
 
 export const heroImages = [
-  '/images/hero-bottle.png',
-  '/images/hero-glass.jpg',
-  '/images/hero-table.jpg',
-  '/images/hero-carton.png',
-  '/images/hero-degustation.jpg',
-  '/images/hero-grapes.jpg',
-  '/images/hero-lounge.jpeg',
-  '/images/hero-celebration.jpg',
-  '/images/hero-ingredients.png',
-  '/images/hero-family.jpg',
+  '/images/hero-bottle.webp',
+  '/images/hero-glass.webp',
+  '/images/hero-table.webp',
+  '/images/hero-carton.webp',
+  '/images/hero-degustation.webp',
+  '/images/hero-celebration.webp',
+  '/images/hero-grapes.webp',
+  '/images/hero-lounge.webp',
+  '/images/hero-ingredients.webp',
+  '/images/hero-family.webp',
 ];

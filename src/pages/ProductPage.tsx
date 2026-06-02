@@ -6,10 +6,10 @@ import { useCart } from '@/context/CartContext';
 import { generateWhatsAppUrl, generateOrderMessage } from '@/lib/whatsapp';
 
 const galleryImages = [
-  '/images/hero-bottle.png',
-  '/images/hero-glass.jpg',
-  '/images/hero-carton.png',
-  '/images/hero-degustation.jpg',
+  '/images/hero-bottle.webp',
+  '/images/hero-glass.webp',
+  '/images/hero-carton.webp',
+  '/images/hero-degustation.webp',
 ];
 
 const benefits = [

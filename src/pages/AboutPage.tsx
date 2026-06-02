@@ -36,7 +36,7 @@ export default function AboutPage() {
             >
               <div className="rounded-xl overflow-hidden aspect-[4/3]">
                 <img
-                  src="/images/hero-celebration.jpg"
+                  src="/images/hero-celebration.webp"
                   alt="Célébration avec Pierre Zéro"
                   className="w-full h-full object-cover"
                 />

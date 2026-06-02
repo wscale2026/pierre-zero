@@ -74,7 +74,7 @@ export default function CartPage() {
               >
                 <div className="w-20 h-20 rounded-lg overflow-hidden bg-pz-goldpale flex-shrink-0">
                   <img
-                    src="/images/hero-bottle.jpg"
+                    src="/images/hero-bottle.webp"
                     alt={item.product.name}
                     className="w-full h-full object-cover"
                   />
